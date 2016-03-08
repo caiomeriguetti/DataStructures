@@ -6,6 +6,25 @@ import junit.framework.TestCase;
 public class ListTest extends TestCase {
 	
 	@Test
+	public void testDeleteByValue() {
+		List l = new List();
+		l.append(1);
+		l.append(2);
+		l.append(3);
+		l.append("X");
+		l.append("Y");
+		l.append("Z");
+		l.append("Z");
+		l.append("T");
+		l.append("Z");
+		l.append("U");
+		
+		l.deleteByValue("Z");
+		
+		assertEquals("1 2 3 X Y Z T Z U ", l.toString());
+	}
+	
+	@Test
 	public void testAppendRemoveAndLength() {
 		List l = new List();
 		l.append(1);
@@ -22,6 +41,7 @@ public class ListTest extends TestCase {
 		assertEquals("2 ", l.toString());
 	}
 	
+	@Test
 	public void testDeleteAllByValue() {
 		List l = new List();
 		l.append(1);
@@ -41,6 +61,7 @@ public class ListTest extends TestCase {
 		assertEquals("T", l.getNodeByIndex(5).getNode().getValue());
 	}
 	
+	@Test
 	public void testDeleteByIndex() {
 		List l = new List();
 		l.append(1);
