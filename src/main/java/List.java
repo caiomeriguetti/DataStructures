@@ -8,6 +8,14 @@ public class List {
 		return last;
 	}
 
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
 	public void setLast(Node last) {
 		this.last = last;
 	}

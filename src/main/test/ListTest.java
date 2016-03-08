@@ -6,14 +6,18 @@ import junit.framework.TestCase;
 public class ListTest extends TestCase {
 	
 	@Test
-	public void testAppendAndRemove() {
+	public void testAppendRemoveAndLength() {
 		List l = new List();
 		l.append(1);
 		l.append(2);
 		
+		assertEquals(2, l.getLength());
+		
 		assertEquals("1 2 ", l.toString());
 		
 		l.deleteByIndex(0);
+		
+		assertEquals(1, l.getLength());
 		
 		assertEquals("2 ", l.toString());
 	}
