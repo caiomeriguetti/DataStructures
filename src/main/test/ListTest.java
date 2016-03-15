@@ -58,7 +58,28 @@ public class ListTest extends TestCase {
 		l.deleteAllByValue("Z");
 		
 		assertEquals("1 2 3 X Y T U ", l.toString());
-		assertEquals("T", l.getNodeByIndex(5).getNode().getValue());
+		
+		l.deleteAllByValue(1);
+		
+		assertEquals("2 3 X Y T U ", l.toString());
+		
+		l.deleteAllByValue(3);
+		l.deleteAllByValue(2);
+		
+		assertEquals("X Y T U ", l.toString());
+		
+		l = new List();
+		l.append(1);
+		l.append(2);
+		
+		l.deleteAllByValue(2);
+		
+		assertEquals("1 ", l.toString());
+		
+		l.deleteAllByValue(1);
+		
+		assertEquals("", l.toString());
+		
 	}
 	
 	@Test

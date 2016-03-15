@@ -35,7 +35,7 @@ public class List {
 	}
 	
 	private void delete(Neighborhood neighborhood) {
-		if (neighborhood.getNode() == null) {
+		if (neighborhood == null || neighborhood.getNode() == null) {
 			return;
 		}
 		
@@ -58,11 +58,10 @@ public class List {
 	}
 	
 	public void deleteAllByValue (Object value) {
-		Node current = first;
-		Neighborhood neighborhood = getNodeByValue(value, current);
+		Neighborhood neighborhood = getNodeByValue(value, first);
 		while(neighborhood != null && neighborhood.getNode() != null) {
 			delete(neighborhood);
-			neighborhood = getNodeByValue(value, current);
+			neighborhood = getNodeByValue(value, neighborhood.getPrevNode());
 		}
 	}
 	
@@ -95,6 +94,11 @@ public class List {
 	}
 	
 	public Neighborhood getNodeByValue(Object value, Node startNode) {
+		
+		if (startNode == null) {
+			return null;
+		}
+		
 		Neighborhood neighborhood = new Neighborhood();
 		Node currentNode = startNode;
 		Node prevNode = null;
@@ -129,10 +133,10 @@ public class List {
 	public String toString() {
 		Node currentNode = first;
 		String buffer = "";
-		do{
+		while(currentNode != null){
 			buffer += String.valueOf(currentNode.getValue()) + " ";
 			currentNode = currentNode.getNext();
-		}while (currentNode != null);
+		}
 		
 		return buffer;
 	}
