@@ -18,4 +18,8 @@ public class Node {
 	public Node() {
 		super();
 	}
+	
+	public Node(Object value) {
+		this.value = value;
+	}
 }

@@ -1,5 +1,5 @@
 
-public class List {
+public class LinkedList {
 	private int length = 0;
 	private Node first;
 	private Node last;
@@ -10,14 +10,6 @@ public class List {
 
 	public int getLength() {
 		return length;
-	}
-
-	public void setLength(int length) {
-		this.length = length;
-	}
-
-	public void setLast(Node last) {
-		this.last = last;
 	}
 
 	public void append(Object val) {
@@ -34,9 +26,9 @@ public class List {
 		length ++;
 	}
 	
-	private void delete(Neighborhood neighborhood) {
+	private Object delete(Neighborhood neighborhood) {
 		if (neighborhood == null || neighborhood.getNode() == null) {
-			return;
+			return null;
 		}
 		
 		Node prev = neighborhood.getPrevNode();
@@ -50,6 +42,8 @@ public class List {
 		}
 		
 		length --;
+		
+		return neighborhood.getNode().getValue();
 	}
 	
 	public void deleteByValue(Object value) {
@@ -65,9 +59,9 @@ public class List {
 		}
 	}
 	
-	public void deleteByIndex(int index) {
+	public Object deleteByIndex(int index) {
 		Neighborhood neighborhood = getNodeByIndex(index);
-		delete(neighborhood);
+		return delete(neighborhood);
 	}
 
 	public void inject(int index, Object val) {

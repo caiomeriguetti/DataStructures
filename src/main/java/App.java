@@ -1,7 +1,7 @@
 
 public class App {
 	public static void main(String[] args) {
-		List l = new List();
+		LinkedList l = new LinkedList();
 		l.append(1);
 		l.append(2);
 		l.append(3);
